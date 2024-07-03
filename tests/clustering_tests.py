@@ -2,7 +2,7 @@ import folium
 from folium.plugins import MarkerCluster
 
 # Change the '<correct_file_path>' to the actual path of scrubbed.txt
-with open('../data/scrubbed.txt', 'r') as file:
+with open('../data/ufo_sightings/scrubbed.txt', 'r') as file:
     random_coordinates = []
     for line in file:
         transformed_items = [item.replace('[', "").replace(']', "") for item in line.strip().split(',')[:2]]
