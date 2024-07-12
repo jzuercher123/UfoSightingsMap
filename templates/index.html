@@ -21,29 +21,100 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
-    
+    <!-- Styling -->
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
+				h1,h2,h3{
+					font-family: Arial, sans-serif;
+					font-size: 24px;
+					color: white;
+					font-style: normal;
+				}
+				table, article{
+					font-family: Arial, sans-serif;
+					color: white;
+					font-style: normal;
+				}
+                body, html {
+                    height: 100%;
+                    margin: 0;
+                    padding: 0;
+                }
+                #sightingDataHeader{
+                    color: black;
+                }
                 #map_d365536d283a8082a126953b83c07281 {
-                    position: relative;
+                    position: absolute;
                     width: 100.0%;
                     height: 100.0%;
                     left: 0.0%;
                     top: 0.0%;
+                    z-index: 0;
                 }
                 .leaflet-container { font-size: 1rem; }
+                #overlay {
+                    position: relative;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 20%;   /* adjust this value as per your needs */
+                    background: black; /* semi-transparent black, change as needed */
+                    z-index: 1;
+                }
+                #popupData {
+                    position: absolute;
+                    bottom: 0;
+                    background-color: white;
+                    width: 90%;
+                    height: 65%;
+                    padding: 10px;
+                    z-index: 2;
+                }
             </style>
-        
+        <!-- Script libs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
 </head>
 <body>
-    
-    
-            <div class="folium-map" id="map_d365536d283a8082a126953b83c07281" ></div>
-        
+		<!-- map -->
+        <div class="folium-map" id="map_d365536d283a8082a126953b83c07281" ></div>
+		
+		<!-- Side-bar (overlay) -->
+        <div id="overlay">
+            <h1>UAP Sightings Map</h1>
+			<article
+				id='nuforc_links'
+				data-columns="4"
+				data-parent="ufodata">
+				<table>
+				<hr></hr>
+				<tr>
+                All information presented gathered from Nuforc.org
+				</tr>
+				</table>
+				
+				<hr></hr>
+				Nuforc Data: 
+                <tr><a href="https://nuforc.org/subndx/?id=all"></tr>
+				Reports
+                <hr></hr>
+
+				</a>
+            </article>
+            <div id="popupData">
+                <h1 id="sightingDataHeader">Sighting Data:</h1>
+                <table id="sightingData"></table>
+            </div>
+        </div>
+
+
 </body>
-<script src="../static/js/test_index.js"></script>
+
+<!-- Top menu bar -->
+
+
+<!-- DO NOT REMOVE - main map script-->
+<script src="../static/js/index.js"></script>
 </html>

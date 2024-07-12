@@ -1,4 +1,10 @@
+"""
+Entry point of the entire application. All functions provided
+in this file are needed for the web application's api.
+"""
 from flask import Flask, render_template
+import flask
+import json
 import os
 
 # Initialize Flask
@@ -14,7 +20,7 @@ def index():
 
 
 @app.route('/js/<path:filename>')
-def serve_js(filename):
+def serve_js(filename) -> flask.Response:
     """
     Serve JavaScript File
 
